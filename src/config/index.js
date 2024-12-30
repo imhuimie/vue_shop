@@ -5,5 +5,7 @@ const CONFIG = {
   }
    
   export default {
-    ...CONFIG
+     ...CONFIG
+    // baseUrl: CONFIG.baseUrl,
+    // uploadFileUrl: CONFIG.uploadFileUrl
   }
