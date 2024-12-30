@@ -95,7 +95,7 @@ export default {
                             confirmPassword: this.form.confirmPassword,
                         });
                         // 登录操作
-                        const res = await register({
+                        const res = await shoppingLogin({
                             username: this.form.username,
                             password: this.form.password,
                         });
