@@ -15,7 +15,7 @@ export default new Vuex.Store({
     // 登录类型
     loginType: window.localStorage.getItem('loginType'),
     // 购物车数量
-    cartNum: parseInt(window.localStorage.getItem('cartNum')),
+    cartNum: parseInt(window.localStorage.getItem('cartNum')) || 0,
   },
   getters: {},
   mutations: {

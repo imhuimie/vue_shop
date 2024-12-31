@@ -12,7 +12,7 @@
         <div class="header-menu">
           <router-link to="/shopping/cart" class="header-menu-cart">
             购物车
-            <span v-if="cartNum">{{ cartNum }}</span>
+            <span>{{ cartNum }}</span>
           </router-link>
         </div>
         <div class="header-menu">
