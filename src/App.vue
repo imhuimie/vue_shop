@@ -18,7 +18,7 @@
         <div class="header-menu">
           {{ user }}
         </div>
-        <div class="header-menu">
+        <div class="header-menu" style="cursor: pointer;">
           <div class="header-menu-cart" @click="UserLogout">
             退出登录
           </div>
@@ -43,7 +43,7 @@
           {{ user }}
         </div>
         <div class="header-menu">
-          <div class="header-menu-cart" @click="AdminLogout">
+          <div class="header-menu-cart" @click="AdminLogout" style="cursor: pointer;">
             退出登录
           </div>
         </div>
