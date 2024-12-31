@@ -19,7 +19,7 @@
           {{ user }}
         </div>
         <div class="header-menu">
-          <div class="header-menu-cart" @click="handleLogout">
+          <div class="header-menu-cart" @click="UserLogout">
             退出登录
           </div>
         </div>
@@ -43,9 +43,9 @@
           {{ user }}
         </div>
         <div class="header-menu">
-          <router-link to="/admin/login/logout" class="header-menu-cart">
+          <div class="header-menu-cart" @click="AdminLogout">
             退出登录
-          </router-link>
+          </div>
         </div>
         <div class="header-menu">
           <router-link to="/shopping/login/logout" class="header-menu-cart">
@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { shoppingLogout } from './service/api';
+import { shoppingLogout, logout } from './service/api';
 
 
 export default {
@@ -89,7 +89,7 @@ export default {
     },
   },
   methods: {
-    async handleLogout() {
+    async UserLogout() {
       try {
 
         await shoppingLogout();
@@ -97,6 +97,17 @@ export default {
         this.$message.success('退出登录成功')
 
         this.$router.push('/shopping/login/logout')
+      } catch (error) {
+        this.$message.error(error.message || '退出登录失败')
+      }
+    },
+    async AdminLogout() {
+      try {
+        await logout();
+
+        this.$message.success('退出登录成功')
+
+        this.$router.push('/admin/login/logout')
       } catch (error) {
         this.$message.error(error.message || '退出登录失败')
       }
