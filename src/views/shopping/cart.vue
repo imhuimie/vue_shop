@@ -32,7 +32,8 @@
                     <span class="cart-control-delete" @click="handleDelete(index)">删除</span>
                 </div>
             </div>
-            <div class="cart-empty" v-if="!cartList.length">购物车为空</div>
+            <!-- <div class="cart-empty" v-if="!cartList.length">购物车为空</div> -->
+             <el-empty v-if="!cartList.length" description="购物车为空"></el-empty>
         </div>
         <div class="cart-footer" v-show="cartList.length">
             <div class="cart-footer-desc">

@@ -60,12 +60,15 @@ export default {
     // 获取购物车数量
     async getMyCartListNumber() {
       try {
+        // 获取购物车列表
         const res = await getCartList({});
         let count = 0;
         res.data.forEach((item) => {
+          // 计算购物车中商品数量
           count += item.goodsNumber;
         });
-        this.$store.commit("setCartNum", count);
+        // 修改状态管理中的购物车数量
+        this.$store.commit("setCartNum", count || 0);
       } catch (error) {
         this.$message.error(error);
       }
