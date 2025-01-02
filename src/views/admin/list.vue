@@ -3,7 +3,7 @@
         <div class="cart-header">
             <div class="cart-header-line">
                 <div class="cart-header-title">商品管理</div>
-                <el-button type="primary" size="small" @click="dialogVisible = true">添加商品</el-button>
+                <el-button type="primary" size="small" @click="handleCreateItem">添加商品</el-button>
             </div>
             <div class="cart-header-main">
                 <div class="cart-info">商品信息</div>
