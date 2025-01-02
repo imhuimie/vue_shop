@@ -5,14 +5,22 @@
                 <div class="cart-header-title">用户管理</div>
                 <el-button type="primary" size="small" @click="handleCreateItem">添加用户</el-button>
             </div>
-            <div class="cart-header-main">
+            <!-- <div class="cart-header-main">
                 <div class="cart-info">用户信息</div>
                 <div class="cart-brand">登录密码</div>
                 <div class="cart-control">操作</div>
-            </div>
+            </div> -->
+            <!-- <el-table class="cart-header-main">
+                <el-table-column class="cart-info" label="用户信息">
+                </el-table-column>
+                <el-table-column class="cart-brand" label="登录密码">
+                </el-table-column>
+                <el-table-column class="cart-control" label="操作">
+                </el-table-column>
+            </el-table> -->
         </div>
-        <div class="cart-content">
-            <!-- 列表显示购物清单 -->
+        <!-- <div class="cart-content">
+            
             <div class="cart-content-main" v-for="(item, index) in list" :key="index">
                 <div class="cart-info">
                     <span style="margin-right: 20px;">{{ '用户昵称：' + item.nickname }}</span>
@@ -27,7 +35,24 @@
                 </div>
             </div>
             <div class="cart-empty" v-if="!list.length">用户列表为空</div>
-        </div>
+        </div> -->
+        <el-table :data="list" style="width: 100%">
+            <el-table-column  prop="nickname" label="用户昵称">
+            </el-table-column>
+            <el-table-column prop="username" label="登录账号">
+            </el-table-column>
+            <el-table-column prop="password" label="登录密码">
+                <span>*********</span>
+            </el-table-column>
+            <el-table-column fixed="right" label="操作" width="100">
+                <template slot-scope="scope">
+                    <!-- <el-button @click="handleEditItem(scope.row)" type="text" size="small">编辑</el-button>
+                    <el-button @click="handleDelete(scope.row)" type="text" size="small">删除</el-button> -->
+                    <el-link @click="handleEditItem(scope.row)" type="warning" :underline="false" style="margin-right: 20px;">编辑</el-link>
+                    <el-link @click="handleDelete(scope.row)" type="danger" :underline="false">删除</el-link>
+                </template>
+            </el-table-column>
+        </el-table>
         <el-dialog :title="title + '用户'" :visible.sync="dialogVisible" width="800px" :before-close="close">
             <el-form :model="form" :rules="rules" ref="form" label-width="160px">
                 <el-form-item label="用户昵称" prop="nickname">
