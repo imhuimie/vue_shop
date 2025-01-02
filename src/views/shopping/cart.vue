@@ -50,14 +50,14 @@
 <script>
 import baseURL from "@/config/index.js";
 import { getCartList, updateCart, deleteCart, buyOrder } from "../../service/api";
-import product_data from "../../components/product";
+// import product_data from "../../product";
 export default {
     name: "cart",
     data() {
         return {
             promotion: 0,
             promotionCode: "",
-            productList: product_data,
+            productList: [],
             cartList: [],
         };
     },
