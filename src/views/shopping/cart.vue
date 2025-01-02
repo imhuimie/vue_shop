@@ -125,7 +125,7 @@ export default {
         //修改购物车数量
         async handleCount(index, count) {
             //最小值设置1
-            if (count < 0 && this.cartList[index].goodsNumber === 1) return;
+            if (count < 0 && this.cartList[index].goodsNumber === 1) return this.$message.error("数量不能小于1");
             try {
                 const res = await updateCart({
                     id: this.cartList[index].id,
